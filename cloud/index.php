@@ -294,6 +294,9 @@ $pages	= getPages($_SESSION[AUTH_PREFIX.'SUPERADMIN_AUTH']);
                     
                     <ul>
                         <li <?=$page=='franchise_categories' ? 'class="active"' : ''?>>
+                            <a href="index.php?_page=search_filter">Search Filter</a>									
+                        </li>
+                        <li <?=$page=='franchise_categories' ? 'class="active"' : ''?>>
                             <a href="index.php?_page=franchise_categories">Franchise Categories</a>									
                         </li>
                         
