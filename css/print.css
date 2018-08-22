@@ -1,0 +1,31 @@
+.site-header,
+.secondary-menu-btn,
+.secondary-menu,
+.site-sidebar,
+.subscribe-large-section,
+.site-footer,
+.another-look-section,
+.print-profile,
+.buttons-wrap,
+.nav-tabs,
+.fp-sticky-footer,
+.contact-form {
+	display: none;
+}
+
+body {
+    background-color: transparent;
+}
+
+.container {
+	width: 100%;
+}
+
+.franchise-profile-section {
+	padding: 0;
+}
+
+.franchise-profile-section__inner, .tab-content {
+	border: 0 !important;
+	background-color: transparent;
+}

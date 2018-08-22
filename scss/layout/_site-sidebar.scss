@@ -1,0 +1,162 @@
+.sidebar-left {
+
+	> .row {
+
+		flex-direction: column-reverse;
+
+		@media (min-width: 992px) {
+			flex-direction: row;
+			flex-wrap: nowrap;
+		}
+	}
+}
+
+.alert-info {
+	background: #f1f1f1;
+    border: 1px solid #cecece;
+    border-radius: 5;
+    color: #233141;
+    font-family: 'Roboto', sans-serif;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 8px;
+}
+
+.site-sidebar {
+	margin: 0 .9375rem;
+	padding: .9375rem 0 2.8125rem;
+	flex: 1 1 auto;
+
+	@media (min-width: 992px) {
+		flex: 0 0 300px;
+		padding: 2.8125rem 0 2.8125rem;
+	}
+
+	.widget {
+		padding: 1.25rem;
+    margin: .9375rem 0;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #dadce0;
+
+		h3 {
+			font-size: 20px;
+			color: #424242;
+			font-weight: 400;
+			padding: 10px 0;
+			display: none;
+			margin-bottom: 0;
+
+			@media (min-width: 992px) {
+				display: block;
+				border-bottom: 1px solid #dadce0;
+			}
+
+			&.collapse-title {
+				display: block;
+
+				@media (min-width: 992px) {
+					display: none;
+				}
+
+				a {
+					color: #424242;
+
+					&:hover, &:focus {
+						text-decoration: none;
+					}
+				}
+			}
+		}
+
+		.collapse {
+
+			@media (min-width: 992px) {
+				display: block !important;
+			}
+		}
+
+		.collapse__inner {
+			margin-top: 1.25rem;
+		}
+
+		&.widget_filter {
+
+			.price-range {
+				display: flex;
+				flex-wrap: wrap;
+				margin-bottom: .5rem;
+
+				label {
+					width: 50%;
+					font-weight: normal;
+				}
+			}
+		}
+
+		&.widget_featured_franchises {
+
+			ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+
+				li {
+					display: -ms-flexbox;
+					display: flex;
+					border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+					margin: 0;
+    			padding: 10px 0 10px 0px;
+
+					.franchise-logo {
+						margin-right: .625rem;
+					}
+
+					.franchise-name {
+						display: flex;
+						flex-direction: column;
+						justify-content: space-between;
+						align-items: flex-start;
+
+						h5 {
+
+							a {
+								color: #424242;
+								display: block;
+								font-size: 16px;
+								overflow: hidden;
+								padding: 7px 0 0 0;
+								text-overflow: ellipsis;
+								white-space: nowrap;
+								margin-bottom: 0rem;
+							}
+						}
+
+						.industry {
+							color: #9E9E9E;
+							font-size: 12px;
+							font-weight: 400;
+							padding: 0.2rem 0;
+
+							&:hover, &:focus {
+							text-decoration: none;
+						}
+						}
+
+						.more-info {
+							text-transform: uppercase;
+							color: #717171;
+							font-size: .6rem;
+							font-weight: 600;
+							transition: all .2s ease;
+
+							&:hover, &:focus {
+								color: #424242;
+
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

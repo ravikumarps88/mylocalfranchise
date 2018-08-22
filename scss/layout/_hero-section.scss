@@ -1,0 +1,316 @@
+.hero-section {
+    padding: 3.75rem 0;
+    background-repeat: no-repeat;
+    background-image: url(../img/home-hero-bg.jpg);
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    visibility: inherit;
+
+    @media (max-width: 992px) {
+        padding: 1rem 0;
+      //  background-image: none;
+    }
+
+   .franchise-opportunity {
+
+        @media (min-width: 992px) {
+            border-radius: 7px;
+            padding: 30px;
+            display: block;
+        }
+
+        .franchise-opportunity__inner {
+            border-radius: 7px;
+            height: 100%;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 290px;
+
+            @media (max-width: 768px) {
+                min-height: 150px;
+                text-align: center;
+            }
+            @media (max-width: 576px) {
+                min-height: 80px;
+                text-align: center;
+            }
+
+            .display-4 {
+                color: #fff;
+                font-size: 2rem;
+                font-weight: 700;
+                letter-spacing: .025em;
+                text-shadow: 2px 2px 12px #191919;
+            }
+
+            .display-1 {
+                color: #fff;
+                font-size: 3rem;
+                font-weight: 700;
+                letter-spacing: .025em;
+                text-shadow: 2px 2px 12px #191919;
+                padding: 8px 0;
+            }
+
+            .display-2 {
+                color: #e8e8e8;
+                font-size: 1.5rem;
+                letter-spacing: .025em;
+
+                strong {
+                    font-weight: 700;
+                }
+            }
+
+            .franchise-opportunity__btn {
+                margin-top: 10px;
+            }
+
+            @media (max-width: 768px) {
+                .franchise-opportunity__btn {
+                    display: none;
+                }
+
+                .display-2 {
+                    display: none;
+                }
+            }
+
+            @media (max-width: 576px) {
+
+                .display-2 {
+                    font-size: 1.6rem;
+                }
+
+                .display-1 {
+                    font-size: 1.6rem;
+                }
+
+            }
+        }
+    }
+
+    .promoted-franchise {
+        // height: 100%;
+        margin-bottom: 30px;
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            justify-content: space-between;
+            display: flex;
+            flex-direction: column;
+            // height: 100%;
+            min-height: 290px + 60px;
+
+            @media (max-width: 768px) {
+                min-height: 150px + 60px;
+            }
+            @media (max-width: 576px) {
+                min-height: 80px + 60px;
+            }
+
+            @media (min-width: 992px) {
+                margin-bottom: 0;
+            }
+
+            li {
+                display: flex;
+                border-bottom: 1px solid rgba(0,0,0,.04);
+                background-color: #fff;
+                padding: .625rem;
+                box-shadow: 0 3px 1px 0 rgba(0,0,0,.06);
+                border-radius: 1px;
+
+                &:hover, &:focus {
+                    transform: translateY(-2px);
+                    transition-duration: 75ms;
+                }
+
+                .franchise-logo {
+                    margin-right: .625rem;
+                    position: relative;
+
+                    .promoted-badge {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        font-size: 8px;
+                        color: #fff;
+                        background-color: #ffb700;
+                        padding: 3px 8px;
+                        border-radius: 2px;
+                        text-transform: uppercase;
+                        letter-spacing: .025em;
+                    }
+                }
+
+                .franchise-name {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    margin-top: 5px;
+
+                    h5 {
+                        margin-bottom: 0rem;
+
+                        a {
+                            color: #424242;
+                            display: block;
+                            width: 200px;
+                            font-size: 1.0625rem;
+                            overflow: hidden;
+                            padding: 7px 0 0 0;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            margin-bottom: 0rem;
+
+                            @media (min-width: 992px) {
+                                width: 100px;
+                            }
+
+                            @media (min-width: 1200px) {
+                                width: 150px;
+                            }
+
+                            @media (min-width: 1400px) {
+                                width: 210px;
+                            }
+                        }
+                    }
+
+                    .industry {
+                        color: #9E9E9E;
+                        font-size: 0.75rem;
+                        font-weight: 400;
+                        padding: 0.2rem 0;
+
+                        &:hover, &:focus {
+                            text-decoration: none;
+
+                        }
+                    }
+
+                    .more-info {
+                        text-transform: uppercase;
+                        color: #717171;
+                        font-size: .6rem;
+                        font-weight: 600;
+                        transition: all .2s ease;
+
+                        &:hover, &:focus {
+                            color: #424242;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .hero-menu {
+        // height: 100%;
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            // height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 290px + 60px;
+
+            @media (max-width: 768px) {
+                min-height: 150px + 60px;
+            }
+            @media (max-width: 576px) {
+                min-height: 80px + 60px;
+            }
+
+            li {
+
+                a {
+                    display: block;
+                    color: #ffffff;
+                    background-color: #2487b2;
+                    // padding: .9375rem 1.875rem;
+                    padding: 1.25rem 1.875rem;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    text-decoration: center;
+                    text-align: center;
+
+                    @media (min-width: 768px) {
+                        font-size: .83rem;
+                        // padding: .625rem 1.875rem;
+                        padding: 1.25rem 1.875rem;
+
+                        .fa {
+                            display: none;
+                        }
+                    }
+
+                    @media (min-width: 1200px) {
+                        font-size: .875rem;
+                        // padding: .9375rem 1.875rem;
+                        padding: 1.25rem 1.875rem;
+
+                        .fa {
+                            display: inline-block;
+                        }
+                    }
+
+                    @media (min-width: 1400px) {
+                        font-size: 1rem;
+                        padding: 1.25rem 1.875rem;
+                    }
+
+                    &:hover {
+                        text-decoration: none;
+                        background-color: darken(#2487b2, 10%);
+                    }
+                }
+
+                &:nth-of-type(2) {
+
+                    a {
+                        background-color: #ff9f00;
+
+                        &:hover {
+                            background-color: darken(#ff9f00, 10%);
+                        }
+                    }
+                }
+
+                &:nth-of-type(3) {
+
+                    a {
+                        background-color: #2f587c;
+
+                        &:hover {
+                            background-color: darken(#2f587c, 10%);
+                        }
+                    }
+                }
+
+                &:nth-of-type(4) {
+
+                    a {
+                        background-color: #d54d32;
+
+                        &:hover {
+                            background-color: darken(#d54d32, 10%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

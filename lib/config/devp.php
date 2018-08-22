@@ -1,0 +1,12 @@
+<?
+
+# MySQL
+define('DB_HOST', "localhost");
+define('DB_USER', "root");
+define('DB_PASS', "");
+define('DB_NAME', "franchise");
+
+
+# Authentication
+define('AUTH_PREFIX', "FRANCHISELOCAL_NEW");
+?>

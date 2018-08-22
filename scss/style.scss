@@ -1,0 +1,32 @@
+@import "vendor/bootstrap";
+@import "vendor/font-awesome";
+
+@import "core/base";
+
+//Global
+@import "layout/site-header";
+@import "layout/a-to-z-section";
+@import "layout/subscribe-section";
+@import "layout/subscribe-large-section";
+@import "layout/franchise-list-section";
+@import "layout/search-hero-section";
+@import "layout/site-sidebar";
+@import "layout/site-footer";
+@import "layout/loader";
+
+// Home Page
+@import "layout/hero-section";
+@import "layout/categories-section";
+@import "layout/franchise-list-section";
+@import "layout/front-copy-section";
+@import "layout/another-look-section";
+
+// Industries Page
+@import "layout/industries-page-section";
+
+// Franchise Profile Page
+@import "layout/franchise-profile-section";
+
+// Forms Page
+@import "layout/aligned-form-section";
+@import "layout/centered-form-section";

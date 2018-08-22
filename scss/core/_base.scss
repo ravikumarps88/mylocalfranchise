@@ -1,0 +1,254 @@
+body {
+    background-color: #ececec;
+    font-family: 'Roboto', sans-serif;
+}
+
+button, label {
+    cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1.25rem;
+}
+
+a {
+    transition: all .2s ease-in-out;
+    color: #151515;
+
+    &:hover, &:focus {
+        color: #151515;
+    }
+}
+
+p {
+
+    a {
+        text-decoration: underline;
+
+        &:hover, &:focus {
+            text-decoration: none;
+        }
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+hr {
+
+}
+
+.btn {
+    border-radius: 2px;
+    color: #101010;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 0;
+    padding: .7rem 1rem;
+    max-width: 100%;
+    box-shadow: 0px 1px 2px 0px rgba(50, 50, 50, 0.15);
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    background-color: #f7b700;
+    border: 1px solid #9c7e31;
+
+
+    &:hover, &:focus {
+        background-color: darken(#f7b700, 5%);
+        color: #233141;
+    }
+}
+
+.btn-secondary {
+    background-color: #e7e9ec;
+    border: 1px solid #5b626a;
+
+    &:hover, &:focus {
+        background-color: darken(#e7e9ec, 5%);
+        color: #233141;
+    }
+}
+
+.btn-warning {
+    background-color: #ffb700;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    &:hover, &:focus {
+        background-color: darken(#fed700, 10%);
+    }
+}
+
+.btn-yellow {
+    color: #000000;
+    background-color: #fed700;
+    // font-size: 0.6875rem;
+    // font-weight: 600;
+    // text-transform: uppercase;
+
+    &:hover, &:focus {
+        background-color: darken(#fed700, 10%);
+    }
+}
+
+.section-title {
+    font-size: 1.5rem;
+    text-align: center;
+    position: relative;
+    margin: 0;
+
+    @media (min-width: 768px) {
+        font-size: 1.9375rem;
+    }
+
+    span {
+        position: relative;
+        background-color: #fafafa;
+        padding: 0 1.5rem;
+    }
+
+//    &:before {
+//        content: "";
+//        height: 1px;
+//        width: 100%;
+//        background-color: #9c9c9b;
+//        position: absolute;
+//        top: 50%;
+//        left: 0;
+//    }
+}
+
+.divider-title {
+    margin: 0 0 20px 0 !important;
+
+    &:after {
+        background-color: #fdd835;
+        content: "";
+        display: inline-block;
+        height: 3px;
+        width: 50px;
+        left: 0;
+        bottom: -20px;
+    }
+}
+
+
+// FORMS
+
+label {
+    font-weight: 700;
+}
+
+.checkbox {
+
+    label {
+        font-weight: normal;
+    }
+}
+
+input[type='text'], input[type='email'], input[type='tel'], input[type='password'] {
+    padding: .625rem .9375rem .6875rem;
+    border: 1px solid #c8c9ca;
+    margin-bottom: 1rem;
+    display: block;
+    width: 100%;
+    font-family: Roboto,sans-serif;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+
+  &:hover {
+    border: 1px solid #AFAFAF;
+  }
+
+  &:focus {
+    border: 1px solid #000;
+  }
+
+
+
+}
+
+select {
+    display: block;
+    width: 100%;
+    padding: .8125rem .9375rem;
+    border: 1px solid #c8c9ca;
+    margin-bottom: 1rem;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    padding: .8125rem .9375rem;
+    border: 1px solid #c8c9ca;
+    margin-bottom: 1rem;
+}
+
+
+.pagination {
+
+    li {
+        padding: 0 3px;
+    }
+
+    li.active .page-link {
+        color: #292b2c;
+        background-color: #f2f5f8;
+        border: 1px solid #e4e5e5;
+    }
+
+    .page-link {
+        color: #292b2c;
+        border: 1px solid #e4e5e5;
+        border-radius: 4px;
+        font-size: 13px;
+        font-weight: 600;
+
+        &:hover {
+            color: #292b2c;
+            text-decoration: none;
+            background-color: #eceeef;
+            border-color: #ddd;
+        }
+    }
+}
+
+.modal-header {
+    background: #f3f3f3;
+    border-bottom: $modal-header-border-width solid #e5e5e5;
+}
+
+.modal-footer {
+    display: block;
+    background: #f3f3f3;
+    border-top: $modal-footer-border-width solid #e5e5e5;
+
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: $modal-lg;
+        margin: $modal-dialog-sm-up-margin-y auto;
+    }
+}
+
+
+#Profile .container {
+    width: auto !important;
+}
+
+
+// Find and Replace database to use Bootstrap v4 float classes instead.
+
+.pull-left {
+    float: left;
+}
+.pull-right {
+    float: right;
+}

@@ -1,0 +1,223 @@
+.franchise-profile-section {
+    padding: 3.75rem .9375rem 2.8125rem;
+    flex: 1 1 auto;
+
+    .franchise-profile-section__inner {
+      background-color: #fff;
+  padding: 1.875rem;
+  border-radius: 8px;
+  border: 1px solid #dadce0;
+
+        .franchise-profile-top {
+            display: flex;
+            flex-direction: column-reverse;
+
+            @media (min-width: 992px) {
+                flex-direction: row;
+            }
+
+            .franchise-intro {
+
+              p {
+                font-size:15px;
+                }
+
+                h1 {
+                    font-size: 1.9rem;
+                    color: #101010;
+                    text-align: center;
+
+                    @media (min-width: 992px) {
+                        text-align: left;
+                    }
+              }
+
+              h2 {
+                  font-size: 1.25rem;
+                  font-weight: 400;
+                  color: #7b7b7b;
+                  text-align: center;
+
+                  @media (min-width: 992px) {
+                      text-align: left;
+                  }
+              }
+
+              h3 {
+                    text-align: center;
+
+                    @media (min-width: 992px) {
+                        text-align: left;
+                    }
+                }
+
+
+            }
+
+            .franchise-logo {
+                flex: 0 0 250px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+
+                .print-profile {
+                    display: none;
+
+                    @media (min-width: 992px) {
+                        display: inline;
+                    }
+                }
+            }
+        }
+
+        .buttons-wrap {
+            border-top: 1px solid #E2E2E2;
+            border-bottom: 1px solid #E2E2E2;
+            padding: 1.25rem .9375rem;
+            background-color: #F9F9F9;
+            margin: 1.875rem -1.875rem;
+
+            .btn {
+                margin-bottom: 15px;
+            }
+
+            @media (min-width: 1200px) {
+                .btn {
+                    margin-bottom: 0;
+                }
+            }
+
+            .col-12:last-child {
+                .btn {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .nav-tabs {
+            border-bottom: 0;
+            flex-direction: column;
+
+            @media (min-width: 768px) {
+                flex-direction: row;
+            }
+
+            > li {
+
+                > a {
+                    border-radius: 0;
+                    letter-spacing: 1px;
+                    padding: 1.25rem 1.5625rem;
+                    text-transform: uppercase;
+                    color: #8a95a6;
+                    border: 1px solid #ecf2f4;
+
+                    background: #fff;
+                    font-weight: 500;
+                    font-size: 14px;
+
+                    @media (min-width: 768px) {
+                        border-right: 0;
+                    }
+
+                    &.active {
+                        color: #101010;
+                        cursor: default;
+                        border-bottom: 0px !important;
+
+                        &:hover, &:focus {
+                            background: #fff;
+                            border-color: #ecf2f4;
+                        }
+                    }
+
+                    &:hover, &:focus {
+                        background-color: #eee;
+                        border-color: #eee #eee #ddd;
+                    }
+                }
+
+                &:last-child {
+
+                    > a {
+                        border-right: 1px solid #ecf2f4;
+                    }
+                }
+            }
+        }
+
+        .tab-content {
+            border-top: 1px solid #ecf2f4;
+            padding: 1.5625rem 2.1875rem;
+            margin-left: -1.875rem;
+            margin-right: -1.875rem;
+        }
+
+        .contact-form {
+          border-top: 1px solid #E2E2E2;
+          padding: 1.875rem;
+          margin-left: -1.875rem;
+          margin-right: -1.875rem;
+          margin-bottom: -1.875rem;
+
+            .additional-info-link {
+                cursor: pointer;
+                margin-bottom: 0;
+
+                .fa {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+.fp-sticky-footer {
+    padding: 15px 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    background: #101010;
+    border-top: 0px solid #eee;
+    box-shadow: 0 -1px 5px rgba(0,0,0,.06);
+    bottom: 0;
+    height: 70px;
+    background-color: #101010;
+    color: #ffffff;
+    width: 100%;
+    z-index: 9000;
+    opacity: 1;
+    transition: all .2s ease;
+
+    &.hide {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    p {
+        margin: 0;
+        // display: block;
+        font-weight: 600;
+    }
+
+    .btn {
+    background-color: #f7b700;
+    border: 0px;
+    border-radius: 2px;
+    color: #101010;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 0;
+    max-width: 100%;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    text-transform: uppercase;
+    }
+
+    .contact_focus {
+        padding: 10px 30px;
+    }
+}

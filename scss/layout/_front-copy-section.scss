@@ -1,0 +1,28 @@
+.front-copy-section {
+	padding: 3.75rem 0;
+	border-bottom: 1px solid #ededed;
+        background: #ffffff;
+
+	img {
+		display: block;
+		margin: 0 auto 1.875rem;
+
+		@media (min-width: 1200px) {
+			float: right;
+			padding: 0 1.875rem 1.875rem;
+		}
+	}
+
+	p {
+		color: #706f6f;
+
+		@media (min-width: 992px) {
+
+		}
+
+		&.lead {
+			color: #292b2c;
+			font-weight: normal;
+		}
+	}
+}

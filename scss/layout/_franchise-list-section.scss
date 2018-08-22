@@ -1,0 +1,388 @@
+.franchise-list-section {
+    padding: 3.75rem .9375rem 2.8125rem;
+    width: 100%;
+
+    h1.section-title {
+        margin-bottom: 0px;
+
+        span {
+            background-color: #e9ebee;
+        }
+    }
+
+    .no-results {
+        padding: 5px;
+        box-sizing: border-box;
+        border-bottom: 1px dashed hsl(0, 0%, 70%);
+        margin-bottom: 30px;
+    }
+
+    .advertisement-long {
+        display: none;
+
+        @media (min-width: 768px) {
+            display: flex;
+            width: auto;
+            flex-basis: auto;
+            flex-grow: 0;
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .more-link {
+            color: #000;
+            font-size: .75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.75rem;
+            align-self: center;
+            margin-bottom: 5px;
+            padding: 5px;
+        }
+
+        img {
+            border: 1px solid #c0c0c0;
+            border-radius: 3px;
+        }
+    }
+
+    .featured-franchise {
+        background-color: #fff;
+        box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .1);
+        border-radius: 3px;
+        margin-bottom: 1.875rem;
+        border: 3px solid #f7b700;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-top-right-radius: 3px;
+        position: relative;
+
+        @media (min-width: 992px) {
+            flex-direction: row;
+
+        }
+
+        @media (min-width: 1200px) {
+            // Large screens CSS here
+        }
+
+        &:after {
+            content: "FEATURED FRANCHISE";
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            color: #fff;
+            background-color: #f7b700;
+            padding: 10px 15px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .franchise-logo {
+            padding: 1.25rem;
+
+            @media (min-width: 992px) {
+                padding-right: 0;
+            }
+
+            @media (min-width: 1200px) {
+                padding-right: 1.25rem;
+            }
+
+            img {
+                max-width: 230px;
+            }
+        }
+
+        .franchise-details {
+            padding: 1.25rem;
+
+            h3 {
+                font-size: 1.25rem;
+                font-weight: 400;
+                color: #7b7b7b;
+            }
+
+            @media (min-width: 992px) {
+
+                h2 {
+                    font-size:1.4rem;
+                    margin-bottom: 5px;
+                }
+
+                h3 {
+                    font-size: 1rem;
+                }
+
+                p {
+                    line-height: 1.3rem;
+                }
+            }
+
+            .button-wrap {
+
+                div {
+
+                    &:first-child {
+
+                        @media (max-width: 767px) {
+                            margin-bottom: 10px;
+                        }
+
+                        @media (min-width: 992px) {
+                            padding-right: 3px;
+                        }
+
+                        @media (min-width: 1200px) {
+                            padding-right: 15px;
+
+                        }
+                    }
+
+                    &:last-child {
+
+                        @media (min-width: 992px) {
+                            padding-left: 3px;
+                        }
+
+                        @media (min-width: 1200px) {
+                            padding-left: 15px;
+                        }
+                    }
+                }
+
+                .btn {
+                    @media (min-width: 992px) {
+                        font-size: 10px;
+                    }
+                    @media (min-width: 1200px) {
+                        font-size: .875rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .subscribe-section-wrap {
+
+        @media (min-width: 992px) {
+            height: 100%;
+            padding-bottom: 1.875rem;
+        }
+    }
+
+    .subscribe-section {
+        margin-bottom: 1.875rem;
+        padding: 1.5rem;
+        box-shadow: 0 3px 3px 0 rgba(0,0,0,.1);
+        border-radius: 3px;
+        margin-bottom: 1.875rem;
+        overflow: hidden;
+        position: relative;
+
+        @media (min-width: 992px) {
+            height: 100%;
+            display: flex;
+        }
+
+        .subscribe-message {
+            margin-bottom: 20px;
+
+            @media (min-width: 992px) {
+
+                h5 {
+                    margin-bottom: 15px;
+                }
+            }
+        }
+
+        .subscribe-form {
+
+            .subscribe-form__inner {
+
+                @media (min-width: 992px) {
+                    flex-direction: column;
+                }
+
+                span {
+
+                    @media (min-width: 992px) {
+                        margin: .9375rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .franchise-box {
+        background-color: #ffffff;
+        box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.1);
+        border-radius: 3px;
+        margin-bottom: 1.875rem;
+        overflow: hidden;
+        position: relative;
+
+        &:hover {
+          box-shadow: 0 5px 25px rgba(0,0,0,.1);
+          -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+          transition: translate .18s,box-shadow .18s;
+              }
+
+        .add-to-request-list {
+            text-align: center;
+            text-transform: uppercase;
+            background: #b3b1b2;
+            padding: 5px;
+
+            a {
+                color: #fff;
+
+                &:hover, &:focus {
+                    text-decoration: none;
+                }
+            }
+
+            .fa {
+                margin-right: 5px;
+            }
+        }
+
+        figure {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            height: 265px;
+            margin: 0;
+            border-bottom: 5px solid #fdd835;
+        }
+
+        .franchise-info {
+            padding: 1.25rem;
+
+            .name {
+                font-weight: 700;
+                margin-bottom: .625rem;
+            }
+
+            .description {
+                margin-bottom: .625rem;
+                overflow: hidden;
+
+                @media (min-width: 992px) {
+                    height: 48px;
+                }
+
+                @media (min-width: 1200px) {
+                    height: 120px;
+                }
+
+                @media (min-width: 1400px) {
+                    height: 72px;
+                }
+            }
+
+            .investment {
+
+                strong {
+                    color: #616161;
+                }
+            }
+        }
+
+        footer {
+            border-top: 1px solid #eeeeee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f9f9f9;
+
+            .controls {
+                display: flex;
+
+                a {
+                    color: #9e9e9e;
+                    line-height: 65px;
+                    height: 65px;
+                    width: 60px;
+                    text-align: center;
+                }
+            }
+
+            .more-link {
+                color: #000000;
+                text-transform: uppercase;
+                font-weight: 700;
+                padding: 1.25rem;
+                padding-bottom: 16px;
+                border-bottom: 4px solid transparent;
+
+                &:hover {
+                    border-bottom: 4px solid #000000;
+                    text-decoration: none;
+                    transition-duration: 75ms;
+                }
+            }
+
+            .fa {
+
+                &:hover {
+                    color:#272727;
+                    transition-duration: 75ms;
+                }
+            }
+        }
+    }
+
+    .pagination {
+        font-size:80%
+    }
+
+    .pagination a {
+        color: #606873;
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        margin: 0 2px;
+        border-radius: 4px;
+        text-align: center;
+        width: 36px;
+        height: 36px;
+        line-height: 32px;
+        background-color: #fff;
+        border: 1px solid #e4e5e5;
+        transition: all .3s ease;
+    }
+
+    .pagination a, .pagination span {
+        display: block;
+        float: left;
+        padding: .3em .5em;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        min-width: 1em;
+        text-align: center
+    }
+
+    .pagination .current {
+        color: #000;
+        background-color: #f2f5f8;
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        margin: 0 2px;
+        border-radius: 4px;
+        text-align: center;
+        width: 36px;
+        height: 36px;
+        line-height: 32px;
+        border: 1px solid #e4e5e5;
+        transition: all .3s ease;
+    }
+
+    .pagination .current.prev, .pagination .current.next {
+        color: #999;
+        background: #fff;
+    }
+}

@@ -1,0 +1,107 @@
+.centered-form-section {
+
+
+    > .container {
+
+        > .row {
+            min-height: calc( 100vh - 161px );
+            padding-top: 3.75rem;
+            padding-bottom: 3.75rem;
+        }
+    }
+
+    .form-box {
+        padding: 40px 20px;
+        background-color: #fff;
+        max-width: 950px;
+        margin: auto;
+
+        .additional-info-link {
+            cursor: pointer;
+            margin-bottom: 0;
+
+            .fa {
+                font-size: 16px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            padding: 60px 40px;
+        }
+
+        @media (min-width: 1200px) {
+            padding: 60px;
+        }
+
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            margin-top: 32px;
+
+            @media (min-width: 576px) {
+                flex-direction: row;
+
+            }
+
+            button {
+                font-size: 12px;
+                text-transform: normal;
+                width: 100%;
+                display: block;
+
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                @media (min-width: 576px) {
+                    width: 48%;
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    .user-profile {
+        text-align: center;
+
+        @media (min-width: 768px) {
+            text-align: left;
+
+            .col-1st {
+                text-align: right;
+            }
+        }
+
+        label {
+            margin: 15px 0 0;
+
+            @media (min-width: 768px) {
+                margin: 0;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .col-md-6 {
+                margin-bottom: 15px;
+            }
+        }
+
+        h3 {
+            margin: 1.25rem 0;
+
+            @media (min-width: 768px) {
+                // margin: 0 0 1.25rem;
+            }
+        }
+
+        input, select {
+            margin: 0;
+        }
+
+        .profile-btn {
+
+        }
+    }
+}

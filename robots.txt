@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /cloud/
+Disallow: /forgot_password.html
