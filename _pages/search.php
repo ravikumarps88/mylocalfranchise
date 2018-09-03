@@ -124,7 +124,7 @@ elseif($_REQUEST['lifestyle'] != '')	{
 } else if($_SESSION['pricerange'] != '')	{ 
 ?>
 		<div class="col-12"><div class="no-results">  
-	        <h1 style="font-size: 33px;"><?=no_magic_quotes( getFieldValue($_REQUEST['price_range_id'], 'pricerange_title','franchise_pricerange'))?> Franchise Opportunities For Sale</h1>   
+	        <h1 style="font-size: 33px;"><?=no_magic_quotes( getFieldValue($_REQUEST['price_range_id'], 'pricerange_title','franchise_pricerange'))?></h1>   
             <p><?=getFieldValue($_REQUEST['price_range_id'], 'description','franchise_pricerange')?></p>
         </div></div>
 <?

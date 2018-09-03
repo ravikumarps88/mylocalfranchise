@@ -458,7 +458,7 @@ function insertPageContents($contents)	{
 }
 
 function getPricerangeUrls($priceRange) {
-    $pricerangeUrl	= dbQuery("SELECT url_title FROM franchise_pricerange WHERE id LIKE '%{$priceRange}%' AND status='active'", 'singlecolumn');
+    $pricerangeUrl	= dbQuery("SELECT url_title FROM franchise_pricerange WHERE pricerange LIKE '%{$priceRange}%' AND status='active'", 'singlecolumn');
     
     return $pricerangeUrl;
 }

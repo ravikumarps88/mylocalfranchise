@@ -1,7 +1,12 @@
 <?php
 require "lib/app_top.php";
+//$pricerangeUrlArray=getPricerangeUrls();
+
+//$pricerangeUrlArray	= dbQuery("SELECT url_title FROM franchise_pricerange WHERE status='active'");
 //echo "<pre>";
-//print_r($_SESSION);exit;
+//print_r($customPriceRageUrls);
+//exit;
+//echo $_REQUEST['_page'];exit;
 if(preg_match("/.html/",$_REQUEST['_page']) || $_REQUEST['_page']=='')	{
 	$_REQUEST['_page']	= str_replace('.html','',$_REQUEST['_page']);	
 	if($_REQUEST['_page'] == 'home') header('Location:'.APP_URL);
@@ -95,13 +100,9 @@ else	{
 			$_SESSION['code']		= '';	
 			$_SESSION['letter']		= '';
 		}
-                elseif(preg_match("/pricerange/",$_REQUEST['_page']))	{
+                elseif(in_array($_REQUEST['_page'], $customPriceRageUrls))	{
                     $_SESSION['code']	= $_SESSION['industries'] = $_SESSION['letter'] = '';
-                    $_SESSION['pricerange']	= str_replace('pricerange/','',$_REQUEST['_page']);
-//                    echo $_SESSION['pricerange'];exit;
-//                    echo "<pre>";
-//                    print_r($_REQUEST);
-//                    exit;
+                    $_SESSION['pricerange']	= $_REQUEST['_page'];
                     
                     $_REQUEST['_page']		= 'search';
                     $_SESSION['code']		= '';	
@@ -121,7 +122,7 @@ else	{
 if(isset($_REQUEST['price_range']))
 {
     $url = getPricerangeUrls($_REQUEST['price_range']);
-    header('Location:'.APP_URL.'pricerange/'.$url, true, 301);
+    header('Location:'.APP_URL.'/'.$url, true, 301);
 }
 $page = ($_REQUEST['_page']!="" ? ($_REQUEST['_page']!="index" ? $_REQUEST['_page'] : "home") : "home");
     

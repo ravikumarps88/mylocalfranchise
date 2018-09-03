@@ -44,7 +44,16 @@ $franchiseCategArr	= dbQuery("SELECT fc.id AS optionId, fc.category AS optionTex
 
 $lifeStyleArr		= dbQuery("SELECT id AS optionId, lifestyle AS optionText FROM lifestyles WHERE status='active' AND is_lifestyle='yes' ORDER BY lifestyle");
 $franchiseArr		= dbQuery("SELECT id AS optionId, vendor AS optionText FROM franchises WHERE status='active' ORDER BY vendor");
-$pricerangeArr		= dbQuery("SELECT id AS optionId, pricerange AS optionText FROM pricerange WHERE status='active' ORDER BY id");
+$pricerangeArr		= dbQuery("SELECT pricerange AS optionId, pricerange AS optionText FROM pricerange WHERE status='active' ORDER BY id");
+
+
+$pricerangeUrlArray	= dbQuery("SELECT url_title FROM franchise_pricerange WHERE status='active'");
+$customPriceRageUrls = array();
+foreach($pricerangeUrlArray as $prangeVal)
+{
+$customPriceRageUrls[] = $prangeVal['url_title'];
+}
+
 
 $liquid_capitalArr	= array("0"=>"Not specified","15"=>"Less than &pound;15,000", "15-30"=>"&pound;15,000 to &pound;30,000", "30-40"=>"&pound;30,000 to &pound;40,000", "40-50"=>"&pound;40,000 to &pound;50,000", "50-100"=>"&pound;500,000 to &pound;100,000", "100-150"=>"&pound;100,000 to &pound;150,000", "150-250"=>"&pound;150,000 to &pound;250,000", "250-500"=>"&pound;250,000 to &pound;500,000", "500-1000"=>"&pound;500,000 to &pound;1,000,000", "1000"=>"More than �1,000,000");
 ?>
