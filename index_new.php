@@ -5,23 +5,7 @@ if(preg_match("/.html/",$_REQUEST['_page']) || $_REQUEST['_page']=='')	{
 	$_REQUEST['_page']	= str_replace('.html','',$_REQUEST['_page']);	
 	if($_REQUEST['_page'] == 'home') header('Location:'.APP_URL);
 	if($_REQUEST['_page'] == 'index') header('Location:'.APP_URL);
-        
-        if(($_REQUEST['_page'] == 'search') && (isset($_REQUEST['price_range'])) && (is_array($_REQUEST['price_range']))) {
-            $url = getPricerangeUrls($_REQUEST['price_range'][0]);
-            if($url != '') {
-                header('Location:'.APP_URL.$url, true, 301);
-            } else {
-                $urlArr = explode('-', $_REQUEST['price_range'][0]);
-                if(strlen($urlArr[0]) == 2) {
-                    $url = getPricerangeUrlsWithPattern('__-'.$urlArr[1]);
-                } else if(strlen($urlArr[0]) == 1) {
-                    $url = getPricerangeUrlsWithPattern('_-'.$urlArr[1]);
-                }
-                header('Location:'.APP_URL.$url, true, 301);
-            }
-        }
-        
-	$_SESSION['code']	= $_SESSION['industries'] = $_SESSION['letter'] = $_SESSION['pricerange'] = '';
+	$_SESSION['code']	= $_SESSION['industries'] = $_SESSION['letter'] = '';
 	if($_REQUEST['lifestyle'] !='')
 		$_SESSION['lifestyle'] = $_REQUEST['lifestyle'];
 }
@@ -66,7 +50,6 @@ else	{
 			$_REQUEST['_page']		= 'search';
 			$_SESSION['code']		= '';	
 			$_SESSION['industries']		= '';
-                        $_SESSION['pricerange'] = '';
 		}
 		elseif(preg_match("/industries/",$_REQUEST['_page']))	{
                     
@@ -110,7 +93,6 @@ else	{
 			$_REQUEST['_page']		= 'search';
 			$_SESSION['code']		= '';	
 			$_SESSION['letter']		= '';
-                        $_SESSION['pricerange'] = '';
 		}
                 elseif(in_array($_REQUEST['_page'], $customPriceRageUrls))	{
                     $_SESSION['code']	= $_SESSION['industries'] = $_SESSION['letter'] = '';
@@ -122,7 +104,7 @@ else	{
                 }
 		else	{
 			$_REQUEST['_page']	= 'franchise_redirect';		
-			$_SESSION['code']	= $_SESSION['industries'] = $_SESSION['letter'] = $_SESSION['pricerange'] = '';
+			$_SESSION['code']	= $_SESSION['industries'] = $_SESSION['letter'] = '';
 		}	
 	}	
 	else	{	
@@ -131,8 +113,13 @@ else	{
 	}	
 }	
 
+if(isset($_REQUEST['price_range']))
+{
+    $url = getPricerangeUrls($_REQUEST['price_range']);
+    header('Location:'.APP_URL.'/'.$url, true, 301);
+}
 $page = ($_REQUEST['_page']!="" ? ($_REQUEST['_page']!="index" ? $_REQUEST['_page'] : "home") : "home");
-
+    
 $template	= getTemplate($page);
 
 if ( empty($template) ) {
