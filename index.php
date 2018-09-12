@@ -21,7 +21,14 @@ if(preg_match("/.html/",$_REQUEST['_page']) || $_REQUEST['_page']=='')	{
             }
         }
         
-	$_SESSION['code']	= $_SESSION['industries'] = $_SESSION['letter'] = $_SESSION['pricerange'] = '';
+        if(($_REQUEST['_page'] == 'search') && (isset($_REQUEST['lifestyle']))) {
+            $url = getLifestyleCatogoryUrls($_REQUEST['lifestyle']);
+            if($url != '') {
+                header('Location:'.APP_URL.$url, true, 301);
+            }
+        }
+        
+	$_SESSION['code']	= $_SESSION['industries'] = $_SESSION['letter'] = $_SESSION['pricerange'] = $_SESSION['lifestyle'] = '';
 	if($_REQUEST['lifestyle'] !='')
 		$_SESSION['lifestyle'] = $_REQUEST['lifestyle'];
 }
@@ -113,8 +120,16 @@ else	{
                         $_SESSION['pricerange'] = '';
 		}
                 elseif(in_array($_REQUEST['_page'], $customPriceRageUrls))	{
-                    $_SESSION['code']	= $_SESSION['industries'] = $_SESSION['letter'] = '';
+                    $_SESSION['code']	= $_SESSION['industries'] = $_SESSION['letter'] = $_SESSION['lifestyle'] ='';
                     $_SESSION['pricerange']	= $_REQUEST['_page'];
+                    
+                    $_REQUEST['_page']		= 'search';
+                    $_SESSION['code']		= '';	
+                    $_SESSION['letter']		= '';
+                }
+                elseif(in_array($_REQUEST['_page'], $customLifestyleUrls))	{
+                    $_SESSION['code']	= $_SESSION['industries'] = $_SESSION['letter'] = $_SESSION['pricerange'] ='';
+                    $_SESSION['lifestyle']	= $_REQUEST['_page'];
                     
                     $_REQUEST['_page']		= 'search';
                     $_SESSION['code']		= '';	

@@ -463,6 +463,12 @@ function getPricerangeUrls($priceRange) {
     return $pricerangeUrl;
 }
 
+function getLifestyleCatogoryUrls($lifestyleVal) {
+    $lifestyleUrl	= dbQuery("SELECT url_title FROM franchise_lifestyle WHERE lifestyle LIKE '%{$lifestyleVal}%' AND status='active'", 'singlecolumn');
+    
+    return $lifestyleUrl;
+}
+
 function getPricerangeUrlsWithPattern($pattern) {
     $pricerangeUrlWithPattern	= dbQuery("SELECT url_title FROM franchise_pricerange WHERE pricerange LIKE '%{$pattern}%' AND status='active'", 'singlecolumn');
     
