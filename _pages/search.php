@@ -1,15 +1,9 @@
 <?
-//print_r($_SESSION['industries']);exit;
+//print_r($_REQUEST);
 if($_SESSION['industries'] != '')	{
 	$_REQUEST['category_id']	= dbQuery("SELECT id FROM franchise_categories WHERE url_title LIKE '%{$_SESSION['industries']}%' AND status='active'", 'singlecolumn');
 	//if($_REQUEST['category_id'] == '' || $_REQUEST['category_id'] == 0)
 		//header("Location:".APP_URL."/home.html");
-}
-
-if($_SESSION['pricerange'] != '')	{
-	$_REQUEST['price_range']	= dbQuery("SELECT pricerange FROM franchise_pricerange WHERE url_title LIKE '%{$_SESSION['pricerange']}%' AND status='active'", 'singlecolumn');
-        $_REQUEST['price_range_id']	= dbQuery("SELECT id FROM franchise_pricerange WHERE url_title LIKE '%{$_SESSION['pricerange']}%' AND status='active'", 'singlecolumn');
-        //echo $_REQUEST['price_range'];exit;
 }
 
 if($_SESSION['letter'] != '')	{
@@ -27,7 +21,11 @@ $vendor_ids = array();
 	$vendor_ids[]	= $val['id'];*/
 ?>
 
-
+<?=$search == 0 ? '<div class="no-results">  
+		<i class="fa fa-info-circle pull-left" style="font-size: 30px;color: hsl(0, 0%, 51%);margin-right: 15px;"></i>
+        <h2>Sorry, no results found.</h2>        
+         <p>Maybe you would like to <a href="/search/a">View Franchises Alphabetically</a> or <a href="/industries.html">Browse by Industry</a></p>
+    </div>' : ''?>
     
 <!-- Search Results -->
 <div class="row" id="col_holder">
@@ -37,17 +35,9 @@ if($_SESSION['industries'] != '')	{
 		<div class="col-12"><div class="no-results">  
 	        <h1 style="font-size: 33px;"><?=no_magic_quotes( getFieldValue($_REQUEST['category_id'], 'category','franchise_categories'))?> Franchise Opportunities For Sale</h1>   
             <p><?=getFieldValue($_REQUEST['category_id'], 'description','franchise_categories')?></p>
-        </div></div>	
-
-        <?=$search == 0 ? '<div class="col-12"><div class="col-12 no-results p-0">  
-		<i class="fa fa-info-circle pull-left" style="font-size: 30px;color: hsl(0, 0%, 51%);margin-right: 15px;"></i>
-        <h2>Sorry, no results found.</h2>        
-         <p>Maybe you would like to <a href="/search/a">View Franchises Alphabetically</a> or <a href="/industries.html">Browse by Industry</a></p>
-    </div></div>' : ''?>
-
+        </div></div>		
 <?
 	$vendors	= getVendorsListFiltered('',1,'','',$_REQUEST['category_id'],'','','','',$_REQUEST['category_id']);
-
 	foreach($vendors as $val)	{
 ?>
         <div class="col-12">
@@ -86,15 +76,7 @@ if($_SESSION['industries'] != '')	{
 <?
 	}
 }
-elseif($_REQUEST['lifestyle'] != '')	{ ?>
-    
-    <?=$search == 0 ? '<div class="col-12"><div class="col-12 no-results p-0">  
-		<i class="fa fa-info-circle pull-left" style="font-size: 30px;color: hsl(0, 0%, 51%);margin-right: 15px;"></i>
-        <h2>Sorry, no results found.</h2>        
-         <p>Maybe you would like to <a href="/search/a">View Franchises Alphabetically</a> or <a href="/industries.html">Browse by Industry</a></p>
-    </div></div>' : ''?>
-
-<?
+elseif($_REQUEST['lifestyle'] != '')	{
 	$vendors	= getVendorsListFiltered('',1,'','','','','','','','',$_REQUEST['lifestyle']);
 	foreach($vendors as $val)	{
 ?>
@@ -132,21 +114,9 @@ elseif($_REQUEST['lifestyle'] != '')	{ ?>
         </div><!-- .col-12 -->
 <?
 	}
-} else if($_SESSION['pricerange'] != '')	{ 
-?>
-		<div class="col-12"><div class="no-results">  
-	        <h1 style="font-size: 33px;"><?=no_magic_quotes( getFieldValue($_REQUEST['price_range_id'], 'pricerange_title','franchise_pricerange'))?></h1>   
-            <p><?=getFieldValue($_REQUEST['price_range_id'], 'description','franchise_pricerange')?></p>
-        </div></div>
-
-<?=$search == 0 ? '<div class="col-12"><div class="col-12 no-results p-0">  
-		<i class="fa fa-info-circle pull-left" style="font-size: 30px;color: hsl(0, 0%, 51%);margin-right: 15px;"></i>
-        <h2>Sorry, no results found.</h2>        
-         <p>Maybe you would like to <a href="/search/a">View Franchises Alphabetically</a> or <a href="/industries.html">Browse by Industry</a></p>
-    </div></div>' : ''?>
-
-<?
 }
+
+
 	$i	= $subcr_count = 0;
     foreach($search_start as $val)	{
 		$i++;

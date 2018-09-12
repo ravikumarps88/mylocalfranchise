@@ -119,7 +119,41 @@ if($_REQUEST['action'] == 'subscribe')	{
 
 if($_REQUEST['action'] == 'load_search_sidebar')	{
 	$form_vals = json_decode($_REQUEST['variables']);
-	echo '<aside class="widget widget_request_list">
+	echo '<aside class="widget widget_filter">
+                    <h3>Update Results</h3>
+                    <h3 class="collapse-title"><a href="#widget_filter" data-toggle="collapse">Update Results <i class="fa fa-angle-down float-right"></i></a></h3>
+                    <div class="collapse" id="widget_filter">
+                        <div class="collapse__inner">
+                            <form id="search_sidebar_form" action="search.html" method="get">
+                                <p><strong>Price Range</strong></p>
+                                <div class="price-range">
+                                    <label><input type="checkbox" value="option1"> 00-10k</label>
+                                    <label><input type="checkbox" value="option2"> 10-20k</label>
+                                    <label><input type="checkbox" value="option3"> 20-30k</label>
+                                    <label><input type="checkbox" value="option3"> 30-40k</label>
+                                    <label><input type="checkbox" value="option3"> 40-50k</label>
+                                    <label><input type="checkbox" value="option3"> 50-100k</label>
+                                    <label><input type="checkbox" value="option3"> 100k+</label>
+                                </div>
+                                
+                                <p><strong>By lifestyle</strong></p>
+                                <select name="lifestyle">
+                                        <option value=""  selected>Select a Lifestyle</option>
+                                        '.htmlOptions($lifeStyleArr, $form_vals->lifestyle).'
+                                </select>
+                                <p><strong>By category</strong></p>
+                                <select name="category_id">
+                                        <option value=""  selected>Select a Category</option>
+                                        '.htmlOptions($franchiseCategArr, $form_vals->category_id).'
+                                </select>
+                                <div class="text-right">
+                                    <button type="submit" name="action" value="Update" class="btn btn-warning">Update</button>
+                                </div><!-- .text-right -->
+                            </form>
+                        </div><!-- .collapse__inner -->
+                    </div><!-- .collapse -->
+                </aside><!-- .widget .widget_filter -->
+                <aside class="widget widget_request_list">
                     <h3>Request List</h3>
                     <h3 class="collapse-title"><a href="#widget_request_list" data-toggle="collapse">My Request List <i class="fa fa-angle-down float-right"></i></a></h3>
                     <div class="collapse" id="widget_request_list">

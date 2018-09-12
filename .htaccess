@@ -60,7 +60,7 @@ php_value short_open_tag 1
 RewriteEngine On
 RewriteCond %{HTTP_HOST} !^localhost [NC]
 #RewriteCond %{HTTP_HOST} !^www\. [NC]
-RewriteRule ^(.*)$ http://localhost/d2dfranchiselocaluser/$1 [L,R=301]
+RewriteRule ^(.*)$ http://localhost/mylocalfranchise/$1 [L,R=301]
 #RewriteCond %{SERVER_PORT} !^443$
 #RewriteRule ^(.*)$ https://www.franchiselocal.co.uk/$1 [L,R=301] 
 RewriteCond %{REQUEST_FILENAME} !-f

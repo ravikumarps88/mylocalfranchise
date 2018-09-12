@@ -30,5 +30,4 @@ loadConfig();
 $newsCategArr		= dbQuery("SELECT id AS optionId, category AS optionText FROM news_categories WHERE status='active' ORDER BY category");
 $franchiseCategArr	= dbQuery("SELECT id AS optionId, category AS optionText FROM franchise_categories WHERE status='active' ORDER BY category");
 $parentCategorieseArr	= dbQuery("SELECT id AS optionId, category AS optionText FROM franchise_categories WHERE status='active' AND parent_id=0");
-$pricerangeArr		= dbQuery("SELECT pricerange AS optionId, pricerange AS optionText FROM pricerange WHERE status='active' ORDER BY id");
 ?>

@@ -1,4 +1,4 @@
-<?php echo "sasas";exit;
+<?
 if($_REQUEST['submit'])	{
 	
 	//Check to make sure that the name field is not empty

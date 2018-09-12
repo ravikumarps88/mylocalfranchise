@@ -86,6 +86,16 @@ elseif($_REQUEST['lifestyle'] != '')	{
         </div><!-- .col-12 -->
 <?
 	}
+} else if($_SESSION['pricerange'] != '')	{ 
+    $_REQUEST['price_range_id']	= dbQuery("SELECT id FROM franchise_pricerange WHERE pricerange LIKE '%{$_REQUEST['price_range']}%' AND status='active'", 'singlecolumn');
+?>
+<div class="col-12">
+    <div class="no-results">  
+        <h1 style="font-size: 33px;"><?= no_magic_quotes(getFieldValue($_REQUEST['price_range_id'], 'pricerange_title', 'franchise_pricerange')) ?></h1>   
+        <p><?= getFieldValue($_REQUEST['price_range_id'], 'description', 'franchise_pricerange') ?></p>
+    </div>
+</div>
+<?
 }
 
 $i	= 0;

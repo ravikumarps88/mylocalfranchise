@@ -307,11 +307,10 @@ function getFieldValue($id, $field, $table)	{
 		$whrletter	= ($letter == '' ? '' : " AND vendor LIKE '$letter%'");
 	
 	//Price range
-        if($price_range != '') {
-            $whrFilter	= " AND (";
-        }
-        if($price_range != '') {
-            switch($price_range)	{	
+	if(count($price_range) > 0 && is_array($price_range))
+		$whrFilter	= " AND (";
+	foreach($price_range as $price_val)		{
+		switch($price_val)	{	
 			case '0-10k':
 				$whrFilter	.= ' (min_investment > 0 AND  min_investment <= 10000) OR';	
 			break;
@@ -357,12 +356,14 @@ function getFieldValue($id, $field, $table)	{
 			break;	
 			
 		}
-        }
-        
-        if($price_range != '') {
-            $whrFilter	= substr($whrFilter,0,strlen($whrFilter)-2);
-            $whrFilter	.= ") ";
-        }
+		
+	} 
+	
+	if(count($price_range) > 0 && is_array($price_range))	{
+		$whrFilter	= substr($whrFilter,0,strlen($whrFilter)-2);
+		$whrFilter	.= ") ";		
+	}	
+	
 	
 	//sort
 	switch($filter)	{	
@@ -455,11 +456,10 @@ function getSearchCount($keyword='', $category_id, $price_range='', $keywords=''
 		$whrletter	= ($letter == '' ? '' : " AND vendor LIKE '$letter%'");
 	
 	//Price range
-	if($price_range != '') {
-            $whrFilter	= " AND (";
-        }
-	if($price_range != '') {
-		switch($price_range)	{	
+	if(count($price_range) > 0 && is_array($price_range))
+		$whrFilter	= " AND (";
+	foreach($price_range as $price_val)		{
+		switch($price_val)	{	
 			case '0-10k':
 				$whrFilter	.= ' (min_investment > 0 AND  min_investment <= 10000) OR';	
 			break;
@@ -508,7 +508,7 @@ function getSearchCount($keyword='', $category_id, $price_range='', $keywords=''
 		
 	} 
 	
-	if($price_range != '') {
+	if(count($price_range) > 0 && is_array($price_range))	{
 		$whrFilter	= substr($whrFilter,0,strlen($whrFilter)-2);
 		$whrFilter	.= ") ";		
 	}	
