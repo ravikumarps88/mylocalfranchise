@@ -119,36 +119,7 @@ if($_REQUEST['action'] == 'subscribe')	{
 
 if($_REQUEST['action'] == 'load_search_sidebar')	{
 	$form_vals = json_decode($_REQUEST['variables']);
-	echo '<aside class="widget widget_filter">
-                    <h3>Update Results</h3>
-                    <h3 class="collapse-title"><a href="#widget_filter" data-toggle="collapse">Update Results <i class="fa fa-angle-down float-right"></i></a></h3>
-                    <div class="collapse" id="widget_filter">
-                        <div class="collapse__inner">
-                            <form id="search_sidebar_form" action="search.html" method="get">
-                                <p><strong>Price Range</strong></p>
-                                <select name="price_range">
-                                        <option value=""  selected>Select a Price range</option>
-                                        '.htmlOptions($pricerangeArr, $form_vals->pricerange).'
-                                </select>
-                                
-                                <p><strong>By lifestyle</strong></p>
-                                <select name="lifestyle">
-                                        <option value=""  selected>Select a Lifestyle</option>
-                                        '.htmlOptions($lifeStyleArr, $form_vals->lifestyle).'
-                                </select>
-                                <p><strong>By category</strong></p>
-                                <select name="category_id">
-                                        <option value=""  selected>Select a Category</option>
-                                        '.htmlOptions($franchiseCategArr, $form_vals->category_id).'
-                                </select>
-                                <div class="text-right">
-                                    <button type="submit" name="action" value="Update" class="btn btn-warning">Update</button>
-                                </div><!-- .text-right -->
-                            </form>
-                        </div><!-- .collapse__inner -->
-                    </div><!-- .collapse -->
-                </aside><!-- .widget .widget_filter -->
-                <aside class="widget widget_request_list">
+	echo '<aside class="widget widget_request_list">
                     <h3>Request List</h3>
                     <h3 class="collapse-title"><a href="#widget_request_list" data-toggle="collapse">My Request List <i class="fa fa-angle-down float-right"></i></a></h3>
                     <div class="collapse" id="widget_request_list">

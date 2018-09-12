@@ -23,27 +23,7 @@ function getPageContents($page)	{
 
 
 function getSEOTags($page, $template)	{
-        if($_SESSION['pricerange'] != '')	{
-		$pricerangeId	= dbQuery("SELECT id FROM franchise_pricerange WHERE url_title LIKE '%{$_SESSION['pricerange']}%' AND status='active'", 'singlecolumn');
-		$pricerange_tags = dbQuery("select pricerange,title_tag,meta_description,meta_keywords,image from franchise_pricerange WHERE id='{$pricerangeId}'",'single');
-		
-		if($pricerange_tags['title_tag'] != '')
-			$tags['title_tag']			= $pricerange_tags['title_tag'];
-		else	
-			$tags['title_tag']			= 'Best '.$pricerange_tags['pricerange'].' Franchise Opportunities | FranchiseLocal.co.uk';
-		
-		if($pricerange_tags['meta_description'] != '')
-			$tags['meta_description']	= $pricerange_tags['meta_description'];
-		else	
-			$tags['meta_description']	= 'Browse the best '. $pricerange_tags['pricerange'] .' Franchise Opportunities and business opportunities for sale with Franchise Local - Visit us today';
-		
-		$tags['meta_keywords'] 		= $pricerange_tags['meta_keywords'];
-		
-		$op_image_ind	= APP_URL."/upload/vendors/category/original/".$pricerange_tags['image'];
-		$template		= str_replace('{op_image_ind}', $op_image_ind, $template);
-	}
-        
-	else if($_SESSION['industries'] != '')	{
+        if($_SESSION['industries'] != '')	{
 		$_REQUEST['category_id']	= dbQuery("SELECT id FROM franchise_categories WHERE url_title LIKE '%{$_SESSION['industries']}%' AND status='active'", 'singlecolumn');
 		$category_tags = dbQuery("select title_tag,meta_description,meta_keywords,image from franchise_categories WHERE id='{$_REQUEST['category_id']}'",'single');
 		
@@ -91,6 +71,26 @@ function getSEOTags($page, $template)	{
 		$tags['meta_keywords'] 		= $category_tags['meta_keywords'];
 	} 
         
+        elseif($_SESSION['pricerange'] != '')	{
+		$pricerangeId	= dbQuery("SELECT id FROM franchise_pricerange WHERE url_title LIKE '%{$_SESSION['pricerange']}%' AND status='active'", 'singlecolumn');
+		$pricerange_tags = dbQuery("select pricerange,title_tag,meta_description,meta_keywords,image from franchise_pricerange WHERE id='{$pricerangeId}'",'single');
+		
+		if($pricerange_tags['title_tag'] != '')
+			$tags['title_tag']			= $pricerange_tags['title_tag'];
+		else	
+			$tags['title_tag']			= 'Best '.$pricerange_tags['pricerange'].' Franchise Opportunities | FranchiseLocal.co.uk';
+		
+		if($pricerange_tags['meta_description'] != '')
+			$tags['meta_description']	= $pricerange_tags['meta_description'];
+		else	
+			$tags['meta_description']	= 'Browse the best '. $pricerange_tags['pricerange'] .' Franchise Opportunities and business opportunities for sale with Franchise Local - Visit us today';
+		
+		$tags['meta_keywords'] 		= $pricerange_tags['meta_keywords'];
+		
+		$op_image_ind	= APP_URL."/upload/vendors/category/original/".$pricerange_tags['image'];
+		$template		= str_replace('{op_image_ind}', $op_image_ind, $template);
+	}
+
 	else	{
 		$sql	= "SELECT title_tag,meta_description,meta_keywords,page_name FROM pages WHERE page_alias='$page'";
 		$tags	= dbQuery($sql, 'single');
@@ -458,8 +458,14 @@ function insertPageContents($contents)	{
 }
 
 function getPricerangeUrls($priceRange) {
-    $pricerangeUrl	= dbQuery("SELECT url_title FROM franchise_pricerange WHERE id LIKE '%{$priceRange}%' AND status='active'", 'singlecolumn');
+    $pricerangeUrl	= dbQuery("SELECT url_title FROM franchise_pricerange WHERE pricerange LIKE '%{$priceRange}%' AND status='active'", 'singlecolumn');
     
     return $pricerangeUrl;
+}
+
+function getPricerangeUrlsWithPattern($pattern) {
+    $pricerangeUrlWithPattern	= dbQuery("SELECT url_title FROM franchise_pricerange WHERE pricerange LIKE '%{$pattern}%' AND status='active'", 'singlecolumn');
+    
+    return $pricerangeUrlWithPattern;
 }
 ?>
