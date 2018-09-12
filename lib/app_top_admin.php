@@ -31,4 +31,5 @@ $newsCategArr		= dbQuery("SELECT id AS optionId, category AS optionText FROM new
 $franchiseCategArr	= dbQuery("SELECT id AS optionId, category AS optionText FROM franchise_categories WHERE status='active' ORDER BY category");
 $parentCategorieseArr	= dbQuery("SELECT id AS optionId, category AS optionText FROM franchise_categories WHERE status='active' AND parent_id=0");
 $pricerangeArr		= dbQuery("SELECT pricerange AS optionId, pricerange AS optionText FROM pricerange WHERE status='active' ORDER BY id");
+$lifestyleCategoriesArr = dbQuery("SELECT id AS optionId, lifestyle AS optionText FROM lifestyles WHERE status='active' ORDER BY lifestyle");
 ?>
