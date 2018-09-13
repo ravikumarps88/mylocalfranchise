@@ -181,7 +181,7 @@ function PUBNETFilePicker (field_name, url, type, win) {
         <tr onmouseover="this.className = 'mouseOverRow';" onmouseout="this.className = '';">
             <td colspan="4" >
                 <p class="bs-example">
-                    <a href="index.php?_page=search_filter" class="bs-example">
+                    <a href="index.php?_page=lifestyle_categories" class="bs-example">
                         <button type="button" class="btn btn-primary pull-right">Back</button>
                     </a>
 
@@ -192,11 +192,11 @@ function PUBNETFilePicker (field_name, url, type, win) {
         </tr> 	
 
         <tr onmouseover="this.className = 'mouseOverRow';" onmouseout="this.className = '';">
-            <td style="vertical-align:top;">Price Range: <a href="#" data-original-title="Select lifestyle"  data-toggle="tooltip" data-placement="top"  class="tooltip-primary" border="0"><i class="entypo-info-circled"></i></a></td>
+            <td style="vertical-align:top;">Lifestyle categories: <a href="#" data-original-title="Select lifestyle"  data-toggle="tooltip" data-placement="top"  class="tooltip-primary" border="0"><i class="entypo-info-circled"></i></a></td>
             <td><select name="franchise_lifestyle" id="franchise_lifestyle" class="selectboxit" <?php if($action == 'edit') { ?> disabled="disabled" <?php } ?> >
                     <option value="">Select</option>
                     <option value="0" <?= $recordsList[0]['lifestyle'] == 0 ? 'selected' : '' ?> >None</option>
-                    <?= htmlOptions($pricerangeArr, $recordsList[0]['lifestyle']); ?>
+                    <?= htmlOptions($lifestyleCategoriesArr, $recordsList[0]['lifestyle']); ?>
                 </select>
             </td>
                 
