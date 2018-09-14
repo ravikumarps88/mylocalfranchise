@@ -420,7 +420,7 @@ function getFieldValue($id, $field, $table)	{
 	}										  
 	
 	
-	$sql	= "SELECT f.id, f.logo, f.vendor_code, f.vendor, f.description, f.min_investment,f.min_invest_show
+	$sql	= "SELECT f.id, f.logo, f.vendor_code, f.vendor, f.description, f.min_investment,f.min_invest_show, f.featured 
 						FROM franchises f 
 
 						$whrJoin

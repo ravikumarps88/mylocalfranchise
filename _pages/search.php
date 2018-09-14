@@ -21,6 +21,27 @@ if($_SESSION['letter'] != '')	{
 }		
 	
 $search_start	= getSearch($_REQUEST['keyword'], $_REQUEST['category_id'], $_REQUEST['price_range'],'','',$_REQUEST['lifestyle'],$_REQUEST['filter'],0,BLOG_PER_PAGE,$_REQUEST['featured'],$_REQUEST['letter'],$_REQUEST['sponsored_categ_id'],$_REQUEST['sponsored_non_categ_id']);
+                  
+
+//End shuffle section: Section to shuffle featured search results in each refresh
+
+$search_start_copy = array();
+$search_start_copy = $search_start;
+$featuredArray = array();
+foreach($search_start_copy as $skey => $sVal) {
+    if($sVal['featured'] == 'yes') {
+        $featuredArray[] = $sVal;
+        unset($search_start_copy[$skey]);
+    }
+}
+shuffle($featuredArray);
+foreach($featuredArray as $fData) {
+    array_unshift($search_start_copy, $fData);
+}
+$search_start = $search_start_copy;
+
+//End shuffle section
+
 $search			= getSearchCount($_REQUEST['keyword'], $_REQUEST['category_id'], $_REQUEST['price_range'],'','',$_REQUEST['lifestyle'],$_REQUEST['filter'],'','',$_REQUEST['featured'],$_REQUEST['letter'],$_REQUEST['sponsored_categ_id'],$_REQUEST['sponsored_non_categ_id']);
 
 if($search == 0)
