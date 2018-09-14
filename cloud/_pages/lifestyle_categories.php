@@ -84,7 +84,7 @@ $statusArr[]	= array("optionId"=>"all","optionText"=>"All");
             <td width="2%" align="left" style="visibility:hidden;"><?= $k ?></td> 	
             <td width="2%" align="left"><?= $i + 1 ?></td>
             <td width="23%" align="left">
-                <a href="index.php?_page=add_edit_lifestyle_categories=edit&id=<?= $recordsList[$i]['id'] ?>">
+                <a href="index.php?_page=add_edit_lifestyle_categories&action=edit&id=<?= $recordsList[$i]['id'] ?>">
                     <strong><?= no_magic_quotes($recordsList[$i]['lifestyle_title']) ?></strong>
                 </a>
             </td>

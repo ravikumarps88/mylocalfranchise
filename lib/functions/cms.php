@@ -56,19 +56,22 @@ function getSEOTags($page, $template)	{
 	}
 	
 	elseif($_SESSION['lifestyle'] != '')	{
-		$category_tags = dbQuery("select lifestyle,title_tag,meta_description,meta_keywords from lifestyles WHERE id='{$_SESSION['lifestyle']}'",'single');
-		
-		if($category_tags['title_tag'] != '')
-			$tags['title_tag']			= $category_tags['title_tag'];
+                $lifestyle_tags = dbQuery("select lifestyle_title,lifestyle,title_tag,meta_description,meta_keywords,image from franchise_lifestyle WHERE url_title LIKE '%{$_SESSION['pricerange']}%' AND status='active'",'single');
+        
+		if($lifestyle_tags['title_tag'] != '')
+			$tags['title_tag']			= $lifestyle_tags['title_tag'];
 		else	
-			$tags['title_tag']			= 'Best '.$category_tags['lifestyle'].' Franchise Opportunities | FranchiseLocal.co.uk';
+			$tags['title_tag']			= 'Best '.$lifestyle_tags['lifestyle_title'].' Franchise Opportunities | FranchiseLocal.co.uk';
 		
-		if($category_tags['meta_description'] != '')
-			$tags['meta_description']	= $category_tags['meta_description'];
+		if($lifestyle_tags['meta_description'] != '')
+			$tags['meta_description']	= $lifestyle_tags['meta_description'];
 		else	
-			$tags['meta_description']	= 'Browse the best '. $category_tags['lifestyle'] .' Franchise Opportunities and business opportunities for sale with Franchise Local - Visit us today';
+			$tags['meta_description']	= 'Browse the best '. $lifestyle_tags['lifestyle_title'] .' Franchise Opportunities and business opportunities for sale with Franchise Local - Visit us today';
 		
-		$tags['meta_keywords'] 		= $category_tags['meta_keywords'];
+		$tags['meta_keywords'] 		= $lifestyle_tags['meta_keywords'];
+                
+                $op_image_ind	= APP_URL."/upload/vendors/lifestyle/original/".$lifestyle_tags['image'];
+		$template		= str_replace('{op_image_ind}', $op_image_ind, $template);
 	} 
         
         elseif($_SESSION['pricerange'] != '')	{
@@ -87,7 +90,7 @@ function getSEOTags($page, $template)	{
 		
 		$tags['meta_keywords'] 		= $pricerange_tags['meta_keywords'];
 		
-		$op_image_ind	= APP_URL."/upload/vendors/category/original/".$pricerange_tags['image'];
+		$op_image_ind	= APP_URL."/upload/vendors/pricerange/original/".$pricerange_tags['image'];
 		$template		= str_replace('{op_image_ind}', $op_image_ind, $template);
 	}
 

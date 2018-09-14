@@ -48,42 +48,55 @@ if($_SESSION['industries'] != '')	{
 	}
 }
 
-elseif($_REQUEST['lifestyle'] != '')	{
+elseif($_REQUEST['lifestyle'] != '')	{ 
+
+    $_REQUEST['lifestyle_id']	= dbQuery("SELECT id FROM franchise_lifestyle WHERE url_title LIKE '%{$_SESSION['lifestyle']}%' AND status='active'", 'singlecolumn');
+    
+?>
+
+    <div class="col-12">
+        <div class="no-results">  
+            <h1 style="font-size: 33px;"><?= no_magic_quotes(getFieldValue($_REQUEST['lifestyle_id'], 'lifestyle_title', 'franchise_lifestyle')) ?></h1>   
+            <p><?= getFieldValue($_REQUEST['lifestyle_id'], 'description', 'franchise_lifestyle') ?></p>
+        </div>
+    </div>
+
+    <?
 	$vendors	= getVendorsListFiltered('',1,'','','','','','','','',$_REQUEST['lifestyle']);
 	foreach($vendors as $val)	{
-?>
-        <div class="col-12">
-            <div class="featured-franchise">
-                <div class="franchise-logo">
-                    <?
-                    if($val['logo'] == '')	{
-                    ?>
-                        <img src="upload/vendors/thumbnail/No-Logo-Image.jpg" alt="<?=no_magic_quotes($val['vendor'])?>" title="<?=no_magic_quotes($val['vendor'])?>">
-                    <?
-                    }
-                    else	{
-                    ?>
-                        <img src="upload/vendors/thumbnail/<?=$val['logo']?>" alt="<?=no_magic_quotes($val['vendor'])?>" title="<?=no_magic_quotes($val['vendor'])?>">
-                    <?
-                    }
-                    ?>
-                </div><!-- .franchise-logo -->
-                <div class="franchise-details">
-                    <h2><?=no_magic_quotes($val['vendor'])?></h2>
-                    <h3><?=no_magic_quotes(getFieldValue($val['category_id'], 'category', 'franchise_categories'))?> Franchise</h3>
-                    <p><?=substr(no_magic_quotes($val['description']),0,85)?> ...</p>
-                    <p><strong>Min Investment:</strong> &pound;<?=number_format($val['min_investment'])?></p>
-                    <div class="row button-wrap">
-                        <div class="col-12 col-md-6">
-                            <a href="<?=$val['vendor_code']?>" class="btn btn-block btn-primary">Find Out More</a>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <a href="javascript:void(0);" id="<?=$val['id']?>" class="btn btn-block btn-secondary add_request_list">Add to Request List</a>
-                        </div>
-                    </div><!-- .button-wrap -->
-                </div><!-- .franchise-details -->
-            </div><!-- .featured-franchise -->
-        </div><!-- .col-12 -->
+    ?>
+            <div class="col-12">
+                <div class="featured-franchise">
+                    <div class="franchise-logo">
+                        <?
+                        if($val['logo'] == '')	{
+                        ?>
+                        <img src="upload/vendors/thumbnail/No-Logo-Image.jpg" alt="<?= no_magic_quotes($val['vendor']) ?>" title="<?= no_magic_quotes($val['vendor']) ?>">
+                        <?
+                        }
+                        else	{
+                        ?>
+                        <img src="upload/vendors/thumbnail/<?= $val['logo'] ?>" alt="<?= no_magic_quotes($val['vendor']) ?>" title="<?= no_magic_quotes($val['vendor']) ?>">
+                        <?
+                        }
+                        ?>
+                    </div><!-- .franchise-logo -->
+                    <div class="franchise-details">
+                        <h2><?= no_magic_quotes($val['vendor']) ?></h2>
+                        <h3><?= no_magic_quotes(getFieldValue($val['category_id'], 'category', 'franchise_categories')) ?> Franchise</h3>
+                        <p><?= substr(no_magic_quotes($val['description']), 0, 85) ?> ...</p>
+                        <p><strong>Min Investment:</strong> &pound;<?= number_format($val['min_investment']) ?></p>
+                        <div class="row button-wrap">
+                            <div class="col-12 col-md-6">
+                                <a href="<?= $val['vendor_code'] ?>" class="btn btn-block btn-primary">Find Out More</a>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <a href="javascript:void(0);" id="<?= $val['id'] ?>" class="btn btn-block btn-secondary add_request_list">Add to Request List</a>
+                            </div>
+                        </div><!-- .button-wrap -->
+                    </div><!-- .franchise-details -->
+                </div><!-- .featured-franchise -->
+            </div><!-- .col-12 -->
 <?
 	}
 } else if($_SESSION['pricerange'] != '')	{ 
