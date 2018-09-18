@@ -166,7 +166,7 @@ function PUBNETFilePicker (field_name, url, type, win) {
         <a href="index.php?_page=home"><i class="entypo-home"></i>Home</a>
     </li>
     <li>
-        <a href="index.php?_page=search_filter">Lifestyle Categories</a>
+        <a href="index.php?_page=lifestyle_categories">Lifestyle Categories</a>
     </li>
     <li class="active">
         <strong>Add/Edit Lifestyle Categories</strong>
