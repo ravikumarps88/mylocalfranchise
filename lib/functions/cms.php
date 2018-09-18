@@ -56,7 +56,7 @@ function getSEOTags($page, $template)	{
 	}
 	
 	elseif($_SESSION['lifestyle'] != '')	{
-                $lifestyle_tags = dbQuery("select lifestyle_title,lifestyle,title_tag,meta_description,meta_keywords,image from franchise_lifestyle WHERE url_title LIKE '%{$_SESSION['pricerange']}%' AND status='active'",'single');
+                $lifestyle_tags = dbQuery("select lifestyle_title,lifestyle,title_tag,meta_description,meta_keywords,image from franchise_lifestyle WHERE url_title LIKE '%{$_SESSION['lifestyle']}%' AND status='active'",'single');
         
 		if($lifestyle_tags['title_tag'] != '')
 			$tags['title_tag']			= $lifestyle_tags['title_tag'];
@@ -467,7 +467,7 @@ function getPricerangeUrls($priceRange) {
 }
 
 function getLifestyleCatogoryUrls($lifestyleVal) {
-    $lifestyleUrl	= dbQuery("SELECT url_title FROM franchise_lifestyle WHERE lifestyle LIKE '%{$lifestyleVal}%' AND status='active'", 'singlecolumn');
+    $lifestyleUrl	= dbQuery("SELECT url_title FROM franchise_lifestyle WHERE lifestyle ='{$lifestyleVal}' AND status='active'", 'singlecolumn');
     
     return $lifestyleUrl;
 }

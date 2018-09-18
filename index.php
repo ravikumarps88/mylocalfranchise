@@ -9,7 +9,7 @@ if(preg_match("/.html/",$_REQUEST['_page']) || $_REQUEST['_page']=='')	{
         if(($_REQUEST['_page'] == 'search') && (isset($_REQUEST['price_range'])) && (is_array($_REQUEST['price_range']))) {
             $url = getPricerangeUrls($_REQUEST['price_range'][0]);
             if($url != '') {
-                header('Location:'.APP_URL.$url, true, 301);
+                header('Location:'.APP_URL.'/'.$url, true, 301);
             } else {
                 $urlArr = explode('-', $_REQUEST['price_range'][0]);
                 if(strlen($urlArr[0]) == 2) {
@@ -17,14 +17,14 @@ if(preg_match("/.html/",$_REQUEST['_page']) || $_REQUEST['_page']=='')	{
                 } else if(strlen($urlArr[0]) == 1) {
                     $url = getPricerangeUrlsWithPattern('_-'.$urlArr[1]);
                 }
-                header('Location:'.APP_URL.$url, true, 301);
+                header('Location:'.APP_URL.'/'.$url, true, 301);
             }
         }
         
         if(($_REQUEST['_page'] == 'search') && (isset($_REQUEST['lifestyle']))) {
             $url = getLifestyleCatogoryUrls($_REQUEST['lifestyle']);
             if($url != '') {
-                header('Location:'.APP_URL.$url, true, 301);
+                header('Location:'.APP_URL.'/'.$url, true, 301);
             }
         }
         
@@ -63,6 +63,7 @@ else	{
 	if($_SESSION['code'] == 'HeritageHealthcare')  header('Location:'.APP_URL.'/heritage-healthcare', true, 301);
 	if($_SESSION['code'] == 'BrightBeautiful')  header('Location:'.APP_URL.'/bright-beautiful', true, 301);
 	if($_SESSION['code'] == 'AmbienceVenueStyling')  header('Location:'.APP_URL.'/ambience-venue-styling', true, 301);
+	if($_SESSION['code'] == 'SweetsandTreatsVending')  header('Location:'.APP_URL.'/sweets-treats-vending', true, 301);
 	
 	
 	
@@ -74,6 +75,7 @@ else	{
 			$_SESSION['code']		= '';	
 			$_SESSION['industries']		= '';
                         $_SESSION['pricerange'] = '';
+                        $_SESSION['lifestyle'] = '';
 		}
 		elseif(preg_match("/industries/",$_REQUEST['_page']))	{
                     
