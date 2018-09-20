@@ -121,7 +121,8 @@ else	{
 			$_SESSION['letter']		= '';
                         $_SESSION['pricerange'] = '';
 		}
-                elseif(in_array($_REQUEST['_page'], $customPriceRageUrls))	{
+                elseif(in_array(str_replace("/", "", $_REQUEST['_page']), $customPriceRageUrls))	{
+                    $_REQUEST['_page'] = str_replace("/", "", $_REQUEST['_page']);
                     $_SESSION['code']	= $_SESSION['industries'] = $_SESSION['letter'] = $_SESSION['lifestyle'] ='';
                     $_SESSION['pricerange']	= $_REQUEST['_page'];
                     
@@ -129,7 +130,8 @@ else	{
                     $_SESSION['code']		= '';	
                     $_SESSION['letter']		= '';
                 }
-                elseif(in_array($_REQUEST['_page'], $customLifestyleUrls))	{
+                elseif(in_array(str_replace("/", "", $_REQUEST['_page']), $customLifestyleUrls))	{
+                    $_REQUEST['_page'] = str_replace("/", "", $_REQUEST['_page']);
                     $_SESSION['code']	= $_SESSION['industries'] = $_SESSION['letter'] = $_SESSION['pricerange'] ='';
                     $_SESSION['lifestyle']	= $_REQUEST['_page'];
                     
