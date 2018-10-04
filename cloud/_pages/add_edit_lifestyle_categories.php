@@ -24,7 +24,7 @@ if ($action=="save") {
         }
 	$dbFields['lifestyle_title'] 		= $lifestyle_title;
 	
-	$dbFields['description'] 	= addslashes($_REQUEST['description']);
+	$dbFields['description'] 	= addslashes($_REQUEST['content_description']);
 	
 	$dbFields['url_title'] 		= $url_title;
 	$dbFields['title_tag'] 		= $title_tag;
@@ -219,7 +219,7 @@ function PUBNETFilePicker (field_name, url, type, win) {
 
         <tr onmouseover="this.className = 'mouseOverRow';" onmouseout="this.className = '';">
             <td style="vertical-align:top;">Page Content: <a href="#" data-original-title="Enter the text or images you want to use on your web page here"  data-toggle="tooltip" data-placement="top"  class="tooltip-primary" border="0"><i class="entypo-info-circled"></i></a></td>
-            <td colspan="3"><textarea name="description" id="description" class="form-control autogrow"><?= htmlspecialchars(no_magic_quotes($recordsList[0]['description'])) ?></textarea></td>
+            <td colspan="3"><textarea name="content_description" id="minChar" class="form-control autogrow"><?= htmlspecialchars(no_magic_quotes($recordsList[0]['description'])) ?></textarea></td>
         </tr> 
 
         <tr onmouseover="this.className = 'mouseOverRow';" onmouseout="this.className = '';">
