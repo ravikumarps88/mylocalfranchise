@@ -70,7 +70,7 @@ if($_SESSION['industries'] != '')	{
         <?=$search == 0 ? '<div class="col-12"><div class="col-12 no-results p-0">  
 		<i class="fa fa-info-circle pull-left" style="font-size: 30px;color: hsl(0, 0%, 51%);margin-right: 15px;"></i>
         <h2>Sorry, no results found.</h2>        
-         <p>Maybe you would like to <a href="/search/a">View Franchises Alphabetically</a> or <a href="/industries.html">Browse by Industry</a></p>
+         <p>Maybe you would like to <a href="/uk-franchise-directory">View Franchises Alphabetically</a> or <a href="/industries.html">Browse by Industry</a></p>
     </div></div>' : ''?>
 
 <?
@@ -126,7 +126,7 @@ elseif($_REQUEST['lifestyle'] != '')	{ ?>
     <?=$search == 0 ? '<div class="col-12"><div class="col-12 no-results p-0">  
 		<i class="fa fa-info-circle pull-left" style="font-size: 30px;color: hsl(0, 0%, 51%);margin-right: 15px;"></i>
         <h2>Sorry, no results found.</h2>        
-         <p>Maybe you would like to <a href="/search/a">View Franchises Alphabetically</a> or <a href="/industries.html">Browse by Industry</a></p>
+         <p>Maybe you would like to <a href="/uk-franchise-directory">View Franchises Alphabetically</a> or <a href="/industries.html">Browse by Industry</a></p>
     </div></div>' : ''?>
 
     <?
@@ -180,7 +180,7 @@ elseif($_REQUEST['lifestyle'] != '')	{ ?>
     <?=$search == 0 ? '<div class="col-12"><div class="col-12 no-results p-0">  
                     <i class="fa fa-info-circle pull-left" style="font-size: 30px;color: hsl(0, 0%, 51%);margin-right: 15px;"></i>
             <h2>Sorry, no results found.</h2>        
-             <p>Maybe you would like to <a href="/search/a">View Franchises Alphabetically</a> or <a href="/industries.html">Browse by Industry</a></p>
+             <p>Maybe you would like to <a href="/uk-franchise-directory">View Franchises Alphabetically</a> or <a href="/industries.html">Browse by Industry</a></p>
         </div></div>' : ''?>
 
 <?

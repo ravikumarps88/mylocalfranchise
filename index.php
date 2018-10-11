@@ -69,13 +69,20 @@ else	{
 	
 	
 	if(dbQuery("SELECT COUNT(*) FROM franchises WHERE vendor_code='{$_SESSION['code']}' AND status='active'", 'count') == 0)	{
-		if(preg_match("/search/",$_REQUEST['_page']))	{
-			$_SESSION['letter']	= str_replace('search/','',$_REQUEST['_page']);
+                if("uk-franchise-directory" == $_REQUEST['_page'])	{
+                        if(!isset($_REQUEST['letter'])) {
+                            $_SESSION['letter'] = 'a';
+                        } else {
+                            $_SESSION['letter']	= $_REQUEST['letter'];
+                        }
 			$_REQUEST['_page']		= 'search';
 			$_SESSION['code']		= '';	
 			$_SESSION['industries']		= '';
                         $_SESSION['pricerange'] = '';
                         $_SESSION['lifestyle'] = '';
+		} elseif(preg_match("/search/",$_REQUEST['_page']))	{
+                        $letter	= str_replace('search/','',$_REQUEST['_page']);
+                        header('Location:'.APP_URL.'/uk-franchise-directory', true, 301);
 		}
 		elseif(preg_match("/industries/",$_REQUEST['_page']))	{
                     
