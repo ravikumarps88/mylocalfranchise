@@ -22,7 +22,7 @@
                             <li><a href="search.html?lifestyle=7">Part-time Franchises</a></li>
                             <!--<li><a href="search.html?lifestyle=16">Van Based Franchises</a></li>-->
                             <li><a href="search.html?lifestyle=1">Home-Based Franchises</a></li>
-                            <li><a href="uk-franchise-directory">Franchise Directory A-Z</a></li>
+                            <li><a href="uk-franchise-directory/">Franchise Directory A-Z</a></li>
                         </ul>
                     </li>
                     <li><a href="industries.html">Industries</a></li>

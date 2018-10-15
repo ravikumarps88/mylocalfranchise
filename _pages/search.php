@@ -18,6 +18,7 @@ if($_SESSION['lifestyle'] != '')	{
 
 if($_SESSION['letter'] != '')	{
 	$_REQUEST['letter']	= $_SESSION['letter'];
+        $_REQUEST['letter_search_id']	= dbQuery("SELECT id FROM alphabet_search WHERE url_title LIKE 'uk-franchise-directory' AND status='active'", 'singlecolumn');
 }		
 	
 $search_start	= getSearch($_REQUEST['keyword'], $_REQUEST['category_id'], $_REQUEST['price_range'],'','',$_REQUEST['lifestyle'],$_REQUEST['filter'],0,BLOG_PER_PAGE,$_REQUEST['featured'],$_REQUEST['letter'],$_REQUEST['sponsored_categ_id'],$_REQUEST['sponsored_non_categ_id']);
@@ -174,6 +175,23 @@ elseif($_REQUEST['lifestyle'] != '')	{ ?>
         <div class="no-results">  
             <h1 style="font-size: 33px;"><?= no_magic_quotes(getFieldValue($_REQUEST['price_range_id'], 'pricerange_title', 'franchise_pricerange')) ?></h1>   
             <p><?= no_magic_quotes(getFieldValue($_REQUEST['price_range_id'], 'description', 'franchise_pricerange')) ?></p>
+        </div>
+    </div>
+
+    <?=$search == 0 ? '<div class="col-12"><div class="col-12 no-results p-0">  
+                    <i class="fa fa-info-circle pull-left" style="font-size: 30px;color: hsl(0, 0%, 51%);margin-right: 15px;"></i>
+            <h2>Sorry, no results found.</h2>        
+             <p>Maybe you would like to <a href="/uk-franchise-directory">View Franchises Alphabetically</a> or <a href="/industries.html">Browse by Industry</a></p>
+        </div></div>' : ''?>
+
+<?
+} else if($_SESSION['letter'] != '')	{ 
+?>
+
+    <div class="col-12">
+        <div class="no-results">  
+            <h1 style="font-size: 33px;"><?= no_magic_quotes(getFieldValue($_REQUEST['letter_search_id'], 'alphabet_search_title', 'alphabet_search')) ?></h1>   
+            <p><?= no_magic_quotes(getFieldValue($_REQUEST['letter_search_id'], 'description', 'alphabet_search')) ?></p>
         </div>
     </div>
 

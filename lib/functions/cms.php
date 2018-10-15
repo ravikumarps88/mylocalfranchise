@@ -92,6 +92,25 @@ function getSEOTags($page, $template)	{
 		
 		$op_image_ind	= APP_URL."/upload/vendors/pricerange/original/".$pricerange_tags['image'];
 		$template		= str_replace('{op_image_ind}', $op_image_ind, $template);
+                
+	} elseif($_SESSION['letter'] != '')	{
+		$alphabetId	= dbQuery("SELECT id FROM alphabet_search WHERE url_title LIKE 'uk-franchise-directory' AND status='active'", 'singlecolumn');
+		$alphabet_tags = dbQuery("select alphabet,title_tag,meta_description,meta_keywords,image FROM alphabet_search WHERE id='{$alphabetId}'",'single');
+		
+		if($alphabet_tags['title_tag'] != '')
+			$tags['title_tag']			= $alphabet_tags['title_tag'];
+		else	
+			$tags['title_tag']			= 'Best '.$alphabet_tags['alphabet'].' Franchise Opportunities | FranchiseLocal.co.uk';
+		
+		if($alphabet_tags['meta_description'] != '')
+			$tags['meta_description']	= $alphabet_tags['meta_description'];
+		else	
+			$tags['meta_description']	= 'Browse the best '. $alphabet_tags['alphabet'] .' Franchise Opportunities and business opportunities for sale with Franchise Local - Visit us today';
+		
+		$tags['meta_keywords'] 		= $alphabet_tags['meta_keywords'];
+		
+		$op_image_ind	= APP_URL."/upload/vendors/alphabet/original/".$alphabet_tags['image'];
+		$template		= str_replace('{op_image_ind}', $op_image_ind, $template);
 	}
 
 	else	{
