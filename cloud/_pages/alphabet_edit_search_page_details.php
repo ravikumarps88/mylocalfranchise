@@ -46,7 +46,7 @@ if ($action=="save") {
 	
 }
 
-if($action == 'edit')	{
+if($action == 'edit' || $action == 'save')	{
     
 	$query = "select * from alphabet_search WHERE id='{$_REQUEST['id']}'";
 	$recordsList = dbQuery($query);

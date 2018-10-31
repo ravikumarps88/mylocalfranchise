@@ -44,7 +44,7 @@ if ($action=="save") {
             if(($lifestyleUrlData[0]['id']!= '') || ($priceraneUrlData[0]['id']!= '')) {
                 $urlErr = "Already existing URL";
                 $recordsList[0]['lifestyle_title']= $lifestyle_title;
-                $recordsList[0]['description']= $_REQUEST['description'];
+                $recordsList[0]['description']= $_REQUEST['content_description'];
                 $recordsList[0]['url_title']= $url_title;
                 $recordsList[0]['title_tag']= $title_tag;
                 $recordsList[0]['meta_description']= $meta_description;

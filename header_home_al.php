@@ -16,23 +16,25 @@
                 <ul>
                     <li class="dropdown"><a href="javascript:void(0);">Popular Searches <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                         <ul>
-                            <li><a href="search.html?filter=newest">New Franchises</a></li>
-                            <li><a href="search.html?lifestyle=15">Low-Cost Franchises</a></li>
-                            <li><a href="search.html?lifestyle=14">Top Franchises</a></li>
-                            <li><a href="search.html?lifestyle=7">Part-time Franchises</a></li>
-                            <!--<li><a href="search.html?lifestyle=16">Van Based Franchises</a></li>-->
-                            <li><a href="search.html?lifestyle=1">Home-Based Franchises</a></li>
-                            <li><a href="uk-franchise-directory/">Franchise Directory A-Z</a></li>
+                            <li><a href="/search.html?filter=newest">New Franchises</a></li>
+                            <li><a href="/low-cost-franchise/">Low-Cost Franchises</a></li>
+                            <li><a href="/best-franchises-uk/">Top Franchises</a></li>
+                            <li><a href="/part-time-franchise/">Part-time Franchises</a></li>
+                            <li><a href="/van-based-franchise/">Van Based Franchises</a></li>
+                            <li><a href="/home-based-franchise/">Home-Based Franchises</a></li>
+                            <li><a href="/uk-franchise-directory/">Full Franchise Directory</a></li>
                         </ul>
                     </li>
                     <li><a href="industries.html">Industries</a></li>
                     <li class="dropdown"><a href="javascript:void(0);">Investment <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                         <ul>
-                            <li><a href="search.html?price_range[]=0-10k&lifestyle=9">Less than &pound;10,000</a></li>
-                            <li><a href="search.html?price_range[]=10-30k&lifestyle=10">&pound;10,000 to &pound;30,000</a></li>
-                            <li><a href="search.html?price_range[]=30-50k&lifestyle=11">&pound;30,000 to &pound;50,000</a></li>
-                            <li><a href="search.html?price_range[]=50-75k&lifestyle=12">&pound;50,000 to &pound;75,000</a></li>
-                            <li><a href="search.html?price_range[]=75k+&lifestyle=13">More than &pound;75,000</a></li>
+                            <li><a href="/franchise-under-10k/">Less than &pound;10,000</a></li>
+                            <li><a href="/franchise-under-20k/">Less than &pound;20,000</a></li>
+                            <li><a href="/franchise-under-30k/">Less than &pound;30,000</a></li>
+                            <li><a href="/franchise-under-40k/">Less than &pound;40,000</a></li>
+                         <li><a href="/franchise-under-50k/">Less than &pound;50,000</a></li>
+                            <li><a href="/franchise-under-100k/">Between 50K & 100K</a></li>
+                         <li><a href="/franchise-over-100k/">Over 100K</a></li>
                         </ul>
                     </li>
                     <li><a href="/news/">News & Advice</a></li>

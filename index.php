@@ -9,7 +9,7 @@ if(preg_match("/.html/",$_REQUEST['_page']) || $_REQUEST['_page']=='')	{
         if(($_REQUEST['_page'] == 'search') && (isset($_REQUEST['price_range'])) && (is_array($_REQUEST['price_range']))) {
             $url = getPricerangeUrls($_REQUEST['price_range'][0]);
             if($url != '') {
-                header('Location:'.APP_URL.'/'.$url, true, 301);
+                header('Location:'.APP_URL.'/'.$url.'/', true, 301);
             } else {
                 $urlArr = explode('-', $_REQUEST['price_range'][0]);
                 if(strlen($urlArr[0]) == 2) {
@@ -17,14 +17,14 @@ if(preg_match("/.html/",$_REQUEST['_page']) || $_REQUEST['_page']=='')	{
                 } else if(strlen($urlArr[0]) == 1) {
                     $url = getPricerangeUrlsWithPattern('_-'.$urlArr[1]);
                 }
-                header('Location:'.APP_URL.'/'.$url, true, 301);
+                header('Location:'.APP_URL.'/'.$url.'/', true, 301);
             }
         }
         
         if(($_REQUEST['_page'] == 'search') && (isset($_REQUEST['lifestyle']))) {
             $url = getLifestyleCatogoryUrls($_REQUEST['lifestyle']);
             if($url != '') {
-                header('Location:'.APP_URL.'/'.$url, true, 301);
+                header('Location:'.APP_URL.'/'.$url.'/', true, 301);
             }
         }
         
@@ -83,6 +83,8 @@ else	{
 		} elseif(preg_match("/search/",$_REQUEST['_page']))	{
                         $letter	= str_replace('search/','',$_REQUEST['_page']);
                         header('Location:'.APP_URL.'/uk-franchise-directory/', true, 301);
+		} elseif("uk-franchise-directory" == $_REQUEST['_page'])	{
+                        header('Location:'.APP_URL.'/uk-franchise-directory/', true, 301);
 		}
 		elseif(preg_match("/industries/",$_REQUEST['_page']))	{
                     
@@ -129,6 +131,9 @@ else	{
                         $_SESSION['pricerange'] = '';
 		}
                 elseif(in_array(str_replace("/", "", $_REQUEST['_page']), $customPriceRageUrls))	{
+                    if(!strpos($_REQUEST['_page'], '/')) {
+                        header('Location:'.APP_URL.'/'.$_REQUEST['_page'].'/', true, 301);
+                    }
                     $_REQUEST['_page'] = str_replace("/", "", $_REQUEST['_page']);
                     $_SESSION['code']	= $_SESSION['industries'] = $_SESSION['letter'] = $_SESSION['lifestyle'] ='';
                     $_SESSION['pricerange']	= $_REQUEST['_page'];
@@ -138,6 +143,9 @@ else	{
                     $_SESSION['letter']		= '';
                 }
                 elseif(in_array(str_replace("/", "", $_REQUEST['_page']), $customLifestyleUrls))	{
+                    if(!strpos($_REQUEST['_page'], '/')) {
+                        header('Location:'.APP_URL.'/'.$_REQUEST['_page'].'/', true, 301);
+                    }
                     $_REQUEST['_page'] = str_replace("/", "", $_REQUEST['_page']);
                     $_SESSION['code']	= $_SESSION['industries'] = $_SESSION['letter'] = $_SESSION['pricerange'] ='';
                     $_SESSION['lifestyle']	= $_REQUEST['_page'];
