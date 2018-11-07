@@ -88,10 +88,13 @@ else	{
 		}
 		elseif(preg_match("/industries/",$_REQUEST['_page']))	{
                     
-			$_SESSION['industries']	= str_replace('industries/','',$_REQUEST['_page']);
-			//var_dump($_SESSION['industries']);
+                        if (strpos(str_replace('industries/','',$_REQUEST['_page']), '/') == false) {
+                            header('Location:'.APP_URL.'/'.$_REQUEST['_page'].'/', true, 301);
+                        }
+			$_SESSION['industries']	= str_replace('/','',str_replace('industries/','',$_REQUEST['_page']));
+
 			//Industry redirects			
-			if($_SESSION['industries'] == 'Home-Improvment')  header('Location:'.APP_URL.'/industries/home-improvement-franchises', true, 301);
+			if($_SESSION['industries'] == 'Home-Improvment')  header('Location:'.APP_URL.'/industries/home-improvement-franchises/', true, 301);
 			if($_SESSION['industries'] == 'Business')  header('Location:'.APP_URL.'/industries/business-franchises', true, 301);
 			if($_SESSION['industries'] == 'business')  header('Location:'.APP_URL.'/industries/business-franchises', true, 301);
 			if($_SESSION['industries'] == 'Building-Maintenance')  header('Location:'.APP_URL.'/industries/building-maintenance-franchises', true, 301);
@@ -159,7 +162,7 @@ else	{
 			$_SESSION['code']	= $_SESSION['industries'] = $_SESSION['letter'] = $_SESSION['pricerange'] = '';
 		}	
 	}	
-	else	{	
+	else	{
 		$_SESSION['industries']		= '';
 		$_REQUEST['_page']	= 'franchise_details';	
 	}	
