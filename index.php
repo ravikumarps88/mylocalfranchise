@@ -42,7 +42,9 @@ elseif($_REQUEST['_page'] == 'industries' || $_REQUEST['_page'] == 'industries/'
 	$_REQUEST['_page']	= 'industries';		
 }	
 else	{	
-	$_SESSION['code']	= $_REQUEST['_page'];
+
+	$_SESSION['code']	= str_replace("/", "", $_REQUEST['_page']);
+
 	//Page redirects
 	if($_SESSION['code'] == 'SlidingSashSolutions')  header('Location:'.APP_URL.'/Sliding-Sash-Solutions', true, 301);
 	if($_SESSION['code'] == 'TimeForYou')  header('Location:'.APP_URL.'/time-for-you', true, 301);
@@ -163,7 +165,13 @@ else	{
 		}	
 	}	
 	else	{
-		$_SESSION['industries']		= '';
+                if(!strpos($_REQUEST['_page'], '/')) {
+                    header('Location:'.APP_URL.'/'.$_REQUEST['_page'].'/', true, 301);
+                }
+
+		$_SESSION['industries']		= '';	
+                $_SESSION['pricerange'] = '';
+                $_SESSION['lifestyle'] = '';
 		$_REQUEST['_page']	= 'franchise_details';	
 	}	
 }	
