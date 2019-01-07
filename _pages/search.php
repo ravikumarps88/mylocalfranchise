@@ -98,8 +98,8 @@ if($_SESSION['industries'] != '')	{
                 <div class="franchise-details">
                     <h2><?=no_magic_quotes($val['vendor'])?></h2>
                     <h3><?=no_magic_quotes(getFieldValue($val['category_id'], 'category', 'franchise_categories'))?> Franchise</h3>
-                    <p><?=substr(no_magic_quotes($val['description']),0,85)?> ...</p>
-                    <p><strong>Min Investment:</strong> &pound;<?=number_format($val['min_investment'])?></p>
+                    <p><?=substr(no_magic_quotes($val['description']),0,190)?> ...</p>
+                    
                     <div class="row button-wrap">
                         <div class="col-12 col-md-6">
                             <a href="<?=$val['vendor_code']?>" class="btn btn-block btn-primary">Find Out More</a>
